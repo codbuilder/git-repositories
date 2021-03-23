@@ -1,0 +1,72 @@
+@import "_reset"
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap')
+
+$border: 1px solid #eeeeee
+
+*
+	//transform: .3s
+
+// Template
+%form-border
+	border-radius: 8px
+	height: 40px
+	margin: 0 4px
+	outline: none
+	border: $border
+
+body
+	font-family: 'Roboto', sans-serif
+
+a
+	color: #0871B0
+	&:hover
+		color: #B00861
+
+.wrapper
+	width: 100%
+	max-width: 640px
+	margin: 0 auto
+
+.findform
+	display: flex
+	flex-flow: row nowrap
+	justify-content: center
+	padding: 40px
+	&__input
+		@extend %form-border
+		padding: 0 .64rem
+	&__submit
+		@extend %form-border
+		padding: 0 2rem
+		cursor: pointer
+
+.infoblock
+	width: 100%
+	display: flex
+	flex-direction: column
+	flex-wrap: nowrap
+	align-items: center
+	border: $border
+	border-radius: 16px
+	padding: 40px
+
+	&__avatar
+		border-radius: 50%
+		height: 120px
+		display: block
+		margin: 2rem 0
+	
+	&__items
+		width: 100%
+		li
+			justify-content: space-between
+			padding: 0.24rem 1rem
+			text-align: center
+			width: 100%
+			&.items__location
+				color: #999999;
+
+
+
+
+
