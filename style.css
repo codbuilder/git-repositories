@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* Указываем box sizing */
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400&display=swap");
 *,
 *::before,
 *::after {
@@ -84,6 +84,22 @@ select {
   }
 }
 
+::-webkit-input-placeholder {
+  color: #999999;
+}
+
+::-moz-placeholder {
+  color: #999999;
+}
+
+::-moz-placeholder {
+  color: #999999;
+}
+
+::-ms-input-placeholder {
+  color: #999999;
+}
+
 .findform__input, .findform__submit {
   border-radius: 8px;
   height: 40px;
@@ -150,6 +166,10 @@ a:hover {
   border: 1px solid #eeeeee;
   border-radius: 16px;
   padding: 40px;
+}
+
+.infoblock__info {
+  color: #999999;
 }
 
 .infoblock__avatar {
