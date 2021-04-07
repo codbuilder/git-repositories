@@ -1,9 +1,10 @@
 @import "_reset"
 @import url('https://fonts.googleapis.com/css?family=Roboto:400&display=swap')
 
-$border: 1px solid #dddddd
-$grayText: #cccccc
+
+$grayText: #999999
 $linkColor: #0871B0
+$border: 1px solid $grayText
 
 *
 	//transform: .3s
@@ -26,7 +27,7 @@ $linkColor: #0871B0
 	border-radius: 0.8rem
 	height: 4rem
 	outline: none
-	border: $border
+	border: 1px solid #f9f9f9
 
 html
 	font-size: 62.5%;
@@ -34,6 +35,7 @@ html
 body
 	font-family: 'Roboto', sans-serif
 	font-size: 1.6rem
+	background: #f9f9f9
 
 a
 	color: $linkColor
@@ -87,24 +89,29 @@ a
 		margin: 0 1.2rem 0 0
 		transition: 0.4s
 		&:focus
-			border-color: $linkColor
+			border: 1px solid $linkColor
 	&__submit
 		@extend %form-items
 		padding: 0 4rem
 		cursor: pointer
 		background: $linkColor
+		border: 1px solid $linkColor
 		transition: 0.4s
 		color: #ffffff
-		border-color: $linkColor
 		margin: 0
 		box-shadow: inset 0px 20px 20px #2E8CC500, 0px 12px 20px -8px #0871B000
 		&:disabled
 			cursor: default
-			background: #f9f9f9
+			background: #eeeeee
 			color: $grayText
 			border-color: #eeeeee
 		&:not([disabled="disabled"]):hover
 			box-shadow: inset 0px 20px 20px #2E8CC5, 0px 12px 20px -8px #0871B080
+
+.header
+	color: $grayText
+	text-align: center
+	padding-top: 4rem
 
 .infoblock
 	width: 100%
@@ -112,15 +119,12 @@ a
 	flex-direction: column
 	flex-wrap: nowrap
 	align-items: center
-	border: $border
+	// border: $border
 	border-radius: 1.6rem
 	padding: 4rem
 	transition: .3s
 	position: relative
-
-	&__info
-		color: $grayText
-		text-align: center
+	background: #ffffff
 
 	&__avatar
 		border-radius: 50%

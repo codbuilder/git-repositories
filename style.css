@@ -85,26 +85,26 @@ select {
 }
 
 ::-webkit-input-placeholder {
-  color: #cccccc;
+  color: #999999;
 }
 
 ::-moz-placeholder {
-  color: #cccccc;
+  color: #999999;
 }
 
 ::-moz-placeholder {
-  color: #cccccc;
+  color: #999999;
 }
 
 ::-ms-input-placeholder {
-  color: #cccccc;
+  color: #999999;
 }
 
 .findform__input, .findform__submit {
   border-radius: 0.8rem;
   height: 4rem;
   outline: none;
-  border: 1px solid #dddddd;
+  border: 1px solid #f9f9f9;
 }
 
 html {
@@ -114,6 +114,7 @@ html {
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 1.6rem;
+  background: #f9f9f9;
 }
 
 a {
@@ -206,18 +207,18 @@ a:hover {
 }
 
 .findform__input:focus {
-  border-color: #0871B0;
+  border: 1px solid #0871B0;
 }
 
 .findform__submit {
   padding: 0 4rem;
   cursor: pointer;
   background: #0871B0;
+  border: 1px solid #0871B0;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   transition: 0.4s;
   color: #ffffff;
-  border-color: #0871B0;
   margin: 0;
   -webkit-box-shadow: inset 0px 20px 20px #2E8CC500, 0px 12px 20px -8px #0871B000;
           box-shadow: inset 0px 20px 20px #2E8CC500, 0px 12px 20px -8px #0871B000;
@@ -225,14 +226,20 @@ a:hover {
 
 .findform__submit:disabled {
   cursor: default;
-  background: #f9f9f9;
-  color: #cccccc;
+  background: #eeeeee;
+  color: #999999;
   border-color: #eeeeee;
 }
 
 .findform__submit:not([disabled="disabled"]):hover {
   -webkit-box-shadow: inset 0px 20px 20px #2E8CC5, 0px 12px 20px -8px #0871B080;
           box-shadow: inset 0px 20px 20px #2E8CC5, 0px 12px 20px -8px #0871B080;
+}
+
+.header {
+  color: #999999;
+  text-align: center;
+  padding-top: 4rem;
 }
 
 .infoblock {
@@ -249,18 +256,13 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid #dddddd;
   border-radius: 1.6rem;
   padding: 4rem;
   -webkit-transition: .3s;
   -o-transition: .3s;
   transition: .3s;
   position: relative;
-}
-
-.infoblock__info {
-  color: #cccccc;
-  text-align: center;
+  background: #ffffff;
 }
 
 .infoblock__avatar {
@@ -284,7 +286,7 @@ a:hover {
 }
 
 .infoblock__items li.items__location {
-  color: #cccccc;
+  color: #999999;
 }
 
 .infoblock .items_show {

@@ -4,8 +4,6 @@ const getUser = async userId => {
 	try {
 		loader.classList.remove('loader_hide')
 		const response = await fetch(`https://api.github.com/users/${userId}`)
-		console.log(response.ok)
-
 		const userData = await response.json()
 		loader.classList.add('loader_hide')
 		return userData
@@ -57,10 +55,13 @@ formButton.addEventListener('click', () => {
 	let formInputValue = formInput.value
 	formInput.value = ''
 	formButton.setAttribute('disabled', 'disabled')
+	console.log(typeof getUser(formInputValue))
+	console.log(getUser(formInputValue))
 	getUser(formInputValue)
 		.then(userData => {
 			itemsList.innerText = ''
 			avatar.setAttribute('src', userData.avatar_url)
+			console.log(userData.avatar_url)
 			if (userData.name) {
 				itemsList.insertAdjacentHTML(
 					'beforeend',
@@ -80,13 +81,7 @@ formButton.addEventListener('click', () => {
 				)
 			}
 			Object.keys(userData).forEach(key => {
-				// console.log(key, ':', userData[key])
 				let addClass = `class="items__${key}"`
-				// itemsList.insertAdjacentHTML(
-				// 	'beforeend',
-				// 	`<li ${addClass}>${key}: ${userData[key]}</li>`
-				// )
-				//
 				switch (key) {
 					case 'name':
 						itemsList.insertAdjacentHTML(
@@ -100,13 +95,6 @@ formButton.addEventListener('click', () => {
 						)
 				}
 			})
-
-			// name, url
-			// document.querySelector('.items__html_url').innerHTML = userData.name
-			// document
-			// 	.querySelector('.items__html_url')
-			// 	.setAttribute('href', userData.html_url)
-			// document.querySelector('.items__html_url').classList.add('.items_show')
 		})
 		.catch(err => alert(err.message))
 })

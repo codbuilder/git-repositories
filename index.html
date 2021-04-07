@@ -12,6 +12,10 @@
 
 <body>
 	<div class="wrapper">
+		<header class="header">
+			<h1>Users git repositories info</h1>
+			<p>Use the form to search for a github user.</p>
+		</header>
 		<form class="findform" onsubmit="return false">
 			<input class="findform__input" placeholder="GitHub user name" autofocus>
 			<button class="findform__submit" disabled="disabled">Find</button>
@@ -24,9 +28,6 @@
 			<ul class="infoblock__items items">
 				<li class="items__name"><a class="items__html_url" href="" target="_blank"></a></li>
 			</ul>
-			<div class="infoblock__info">
-				<p>Users git repositories info. Use the form to search for a github user.</p>
-			</div>
 		</section>
 	</div>
 	<script src="app.js"></script>
