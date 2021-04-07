@@ -4,6 +4,7 @@
 
 $grayText: #999999
 $linkColor: #0871B0
+$linkHoverColor: #eb8314
 $border: 1px solid $grayText
 
 *
@@ -41,7 +42,7 @@ a
 	color: $linkColor
 	text-decoration: none
 	&:hover
-		color: #B00861
+		color: $linkHoverColor
 
 .wrapper
 	width: 100%
@@ -50,6 +51,7 @@ a
 	display: flex
 	flex-flow: column nowrap
 	justify-content: center
+	padding: 4rem 0
 
 .loader
 	width: 40px
@@ -99,19 +101,20 @@ a
 		transition: 0.4s
 		color: #ffffff
 		margin: 0
-		box-shadow: inset 0px 20px 20px #2E8CC500, 0px 12px 20px -8px #0871B000
 		&:disabled
 			cursor: default
 			background: #eeeeee
 			color: $grayText
 			border-color: #eeeeee
+			// box-shadow: inset 0px 20px 20px #2E8CC500, 0px 12px 20px -8px #0871B000
+			box-shadow: 0px 12px 20px -8px #0871B000
 		&:not([disabled="disabled"]):hover
-			box-shadow: inset 0px 20px 20px #2E8CC5, 0px 12px 20px -8px #0871B080
+			// box-shadow: inset 0px 20px 20px #2E8CC5, 0px 12px 20px -8px #0871B080
+			box-shadow: 0px 12px 20px -8px #0871B080
 
 .header
 	color: $grayText
 	text-align: center
-	padding-top: 4rem
 
 .infoblock
 	width: 100%
@@ -137,12 +140,34 @@ a
 		li
 			// display: none
 			justify-content: space-between
-			padding: 0.24rem 1rem
+			padding: 0.4rem 0
 			text-align: center
 			width: 100%
 			&.items__location
 				color: $grayText
-	
+			&.items__bio
+				padding: 2rem
+				background: #f9f9f9
+				border-radius: .8rem
+				margin: 1.6rem 0
+			&.items__repos
+				padding-top: 1.6rem
+			&.items__follow
+				color: $grayText
+				p
+					display: inline-block
+			&.items__repos-url
+				a
+					display: inline-block
+					padding: 0.48rem 1.6rem
+					margin: 0.48rem
+					border: 1px solid #eeeeee
+					border-radius: 0.8rem
+					transition: .3s
+					&:hover
+						background: $linkColor
+						border-color: $linkColor
+						color: #ffffff
 	.items_show
 		display: block
 
