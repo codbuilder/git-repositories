@@ -1,8 +1,9 @@
 @import "_reset"
 @import url('https://fonts.googleapis.com/css?family=Roboto:400&display=swap')
 
-$border: 1px solid #eeeeee
-$grayText: #999999
+$border: 1px solid #dddddd
+$grayText: #cccccc
+$linkColor: #0871B0
 
 *
 	//transform: .3s
@@ -22,37 +23,88 @@ $grayText: #999999
 
 // Template
 %form-items
-	border-radius: 8px
-	height: 40px
-	margin: 0 4px
+	border-radius: 0.8rem
+	height: 4rem
 	outline: none
 	border: $border
 
+html
+	font-size: 62.5%;
+
 body
 	font-family: 'Roboto', sans-serif
+	font-size: 1.6rem
 
 a
-	color: #0871B0
+	color: $linkColor
+	text-decoration: none
 	&:hover
 		color: #B00861
 
 .wrapper
 	width: 100%
-	max-width: 640px
+	max-width: 64rem
 	margin: 0 auto
+	display: flex
+	flex-flow: column nowrap
+	justify-content: center
+
+.loader
+	width: 40px
+	height: 40px
+	position: absolute
+	right: 8px
+	top: 8px
+	transition: .3s
+	&_hide
+		opacity: 0
+	circle
+		transform-origin: center
+		-webkit-animation: rotate 1s linear infinite
+		animation: rotate 1s linear infinite
+		stroke: $linkColor
+		fill: none
+	@-webkit-keyframes rotate
+		100%
+			-webkit-transform: rotate(360deg)
+			-ms-transform: rotate(360deg)
+			transform: rotate(360deg)
+	@keyframes rotate
+		100%
+			-webkit-transform: rotate(360deg)
+			-ms-transform: rotate(360deg)
+			transform: rotate(360deg)
 
 .findform
 	display: flex
 	flex-flow: row nowrap
 	justify-content: center
-	padding: 40px
+	padding: 4rem
 	&__input
 		@extend %form-items
-		padding: 0 .64rem
+		padding: 0 1.2rem
+		width: 28rem
+		margin: 0 1.2rem 0 0
+		transition: 0.4s
+		&:focus
+			border-color: $linkColor
 	&__submit
 		@extend %form-items
-		padding: 0 2rem
+		padding: 0 4rem
 		cursor: pointer
+		background: $linkColor
+		transition: 0.4s
+		color: #ffffff
+		border-color: $linkColor
+		margin: 0
+		box-shadow: inset 0px 20px 20px #2E8CC500, 0px 12px 20px -8px #0871B000
+		&:disabled
+			cursor: default
+			background: #f9f9f9
+			color: $grayText
+			border-color: #eeeeee
+		&:not([disabled="disabled"]):hover
+			box-shadow: inset 0px 20px 20px #2E8CC5, 0px 12px 20px -8px #0871B080
 
 .infoblock
 	width: 100%
@@ -61,27 +113,34 @@ a
 	flex-wrap: nowrap
 	align-items: center
 	border: $border
-	border-radius: 16px
-	padding: 40px
+	border-radius: 1.6rem
+	padding: 4rem
+	transition: .3s
+	position: relative
 
 	&__info
 		color: $grayText
+		text-align: center
 
 	&__avatar
 		border-radius: 50%
-		height: 120px
+		height: 12rem
 		display: block
-		margin: 2rem 0
-	
+		margin: 0 0 2rem
+
 	&__items
 		width: 100%
 		li
+			// display: none
 			justify-content: space-between
 			padding: 0.24rem 1rem
 			text-align: center
 			width: 100%
 			&.items__location
 				color: $grayText
+	
+	.items_show
+		display: block
 
 
 

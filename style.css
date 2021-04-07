@@ -85,35 +85,40 @@ select {
 }
 
 ::-webkit-input-placeholder {
-  color: #999999;
+  color: #cccccc;
 }
 
 ::-moz-placeholder {
-  color: #999999;
+  color: #cccccc;
 }
 
 ::-moz-placeholder {
-  color: #999999;
+  color: #cccccc;
 }
 
 ::-ms-input-placeholder {
-  color: #999999;
+  color: #cccccc;
 }
 
 .findform__input, .findform__submit {
-  border-radius: 8px;
-  height: 40px;
-  margin: 0 4px;
+  border-radius: 0.8rem;
+  height: 4rem;
   outline: none;
-  border: 1px solid #eeeeee;
+  border: 1px solid #dddddd;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
 }
 
 a {
   color: #0871B0;
+  text-decoration: none;
 }
 
 a:hover {
@@ -122,8 +127,59 @@ a:hover {
 
 .wrapper {
   width: 100%;
-  max-width: 640px;
+  max-width: 64rem;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+.loader_hide {
+  opacity: 0;
+}
+
+.loader circle {
+  -webkit-transform-origin: center;
+      -ms-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: rotate 1s linear infinite;
+  animation: rotate 1s linear infinite;
+  stroke: #0871B0;
+  fill: none;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 .findform {
@@ -137,16 +193,46 @@ a:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 40px;
+  padding: 4rem;
 }
 
 .findform__input {
-  padding: 0 .64rem;
+  padding: 0 1.2rem;
+  width: 28rem;
+  margin: 0 1.2rem 0 0;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.findform__input:focus {
+  border-color: #0871B0;
 }
 
 .findform__submit {
-  padding: 0 2rem;
+  padding: 0 4rem;
   cursor: pointer;
+  background: #0871B0;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  color: #ffffff;
+  border-color: #0871B0;
+  margin: 0;
+  -webkit-box-shadow: inset 0px 20px 20px #2E8CC500, 0px 12px 20px -8px #0871B000;
+          box-shadow: inset 0px 20px 20px #2E8CC500, 0px 12px 20px -8px #0871B000;
+}
+
+.findform__submit:disabled {
+  cursor: default;
+  background: #f9f9f9;
+  color: #cccccc;
+  border-color: #eeeeee;
+}
+
+.findform__submit:not([disabled="disabled"]):hover {
+  -webkit-box-shadow: inset 0px 20px 20px #2E8CC5, 0px 12px 20px -8px #0871B080;
+          box-shadow: inset 0px 20px 20px #2E8CC5, 0px 12px 20px -8px #0871B080;
 }
 
 .infoblock {
@@ -163,20 +249,25 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid #eeeeee;
-  border-radius: 16px;
-  padding: 40px;
+  border: 1px solid #dddddd;
+  border-radius: 1.6rem;
+  padding: 4rem;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+  position: relative;
 }
 
 .infoblock__info {
-  color: #999999;
+  color: #cccccc;
+  text-align: center;
 }
 
 .infoblock__avatar {
   border-radius: 50%;
-  height: 120px;
+  height: 12rem;
   display: block;
-  margin: 2rem 0;
+  margin: 0 0 2rem;
 }
 
 .infoblock__items {
@@ -193,5 +284,9 @@ a:hover {
 }
 
 .infoblock__items li.items__location {
-  color: #999999;
+  color: #cccccc;
+}
+
+.infoblock .items_show {
+  display: block;
 }
