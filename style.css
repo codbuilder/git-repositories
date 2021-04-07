@@ -104,7 +104,9 @@ select {
   border-radius: 0.8rem;
   height: 4rem;
   outline: none;
-  border: 1px solid #f9f9f9;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #f9f9f9;
 }
 
 html {
@@ -202,23 +204,23 @@ a:hover {
   padding: 0 1.2rem;
   width: 28rem;
   margin: 0 1.2rem 0 0;
-  -webkit-transition: 0.4s;
-  -o-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: border-color 0.4s;
+  -o-transition: border-color 0.4s;
+  transition: border-color 0.4s;
 }
 
 .findform__input:focus {
-  border: 1px solid #0871B0;
+  border-color: #0871B0;
 }
 
 .findform__submit {
   padding: 0 4rem;
   cursor: pointer;
   background: #0871B0;
-  border: 1px solid #0871B0;
-  -webkit-transition: 0.4s;
-  -o-transition: 0.4s;
-  transition: 0.4s;
+  border-color: #0871B0;
+  -webkit-transition: border-color 0.4s;
+  -o-transition: border-color 0.4s;
+  transition: border-color 0.4s;
   color: #ffffff;
   margin: 0;
 }
@@ -258,9 +260,6 @@ a:hover {
           align-items: center;
   border-radius: 1.6rem;
   padding: 4rem;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
   position: relative;
   background: #ffffff;
 }
@@ -269,7 +268,6 @@ a:hover {
   border-radius: 50%;
   height: 12rem;
   display: block;
-  margin: 0 0 2rem;
 }
 
 .infoblock__items {
@@ -283,6 +281,10 @@ a:hover {
   padding: 0.4rem 0;
   text-align: center;
   width: 100%;
+}
+
+.infoblock__items li:first-child {
+  padding-top: 2.4rem;
 }
 
 .infoblock__items li.items__location {
@@ -312,11 +314,14 @@ a:hover {
   display: inline-block;
   padding: 0.48rem 1.6rem;
   margin: 0.48rem;
-  border: 1px solid #eeeeee;
+  background: #ffffff;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #eeeeee;
   border-radius: 0.8rem;
-  -webkit-transition: .3s;
-  -o-transition: .3s;
-  transition: .3s;
+  -webkit-transition: border-color .3s, background .3s, color .3s;
+  -o-transition: border-color .3s, background .3s, color .3s;
+  transition: border-color .3s, background .3s, color .3s;
 }
 
 .infoblock__items li.items__repos-url a:hover {

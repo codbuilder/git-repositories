@@ -28,7 +28,9 @@ $border: 1px solid $grayText
 	border-radius: 0.8rem
 	height: 4rem
 	outline: none
-	border: 1px solid #f9f9f9
+	border-width: 1px
+	border-style: solid
+	border-color: #f9f9f9
 
 html
 	font-size: 62.5%;
@@ -89,16 +91,16 @@ a
 		padding: 0 1.2rem
 		width: 28rem
 		margin: 0 1.2rem 0 0
-		transition: 0.4s
+		transition: border-color 0.4s
 		&:focus
-			border: 1px solid $linkColor
+			border-color: $linkColor
 	&__submit
 		@extend %form-items
 		padding: 0 4rem
 		cursor: pointer
 		background: $linkColor
-		border: 1px solid $linkColor
-		transition: 0.4s
+		border-color: $linkColor
+		transition: border-color 0.4s
 		color: #ffffff
 		margin: 0
 		&:disabled
@@ -122,10 +124,8 @@ a
 	flex-direction: column
 	flex-wrap: nowrap
 	align-items: center
-	// border: $border
 	border-radius: 1.6rem
 	padding: 4rem
-	transition: .3s
 	position: relative
 	background: #ffffff
 
@@ -133,7 +133,7 @@ a
 		border-radius: 50%
 		height: 12rem
 		display: block
-		margin: 0 0 2rem
+		// margin: 0 0 2rem
 
 	&__items
 		width: 100%
@@ -143,6 +143,8 @@ a
 			padding: 0.4rem 0
 			text-align: center
 			width: 100%
+			&:first-child
+				padding-top: 2.4rem
 			&.items__location
 				color: $grayText
 			&.items__bio
@@ -161,9 +163,12 @@ a
 					display: inline-block
 					padding: 0.48rem 1.6rem
 					margin: 0.48rem
-					border: 1px solid #eeeeee
+					background: #ffffff
+					border-width: 1px
+					border-style: solid
+					border-color: #eeeeee
 					border-radius: 0.8rem
-					transition: .3s
+					transition: border-color .3s, background .3s, color .3s
 					&:hover
 						background: $linkColor
 						border-color: $linkColor
