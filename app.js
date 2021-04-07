@@ -60,7 +60,7 @@ formButton.addEventListener('click', () => {
 			} else {
 				itemsList.insertAdjacentHTML(
 					'beforeend',
-					`<li><a href="${userData.html_url}">@${userData.login}</a></li>`
+					`<li><a href="${userData.html_url}" target="_blank">@${userData.login}</a></li>`
 				)
 			}
 			// location
