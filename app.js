@@ -4,9 +4,16 @@ const getUser = async userId => {
 	try {
 		loader.classList.remove('loader_hide')
 		const response = await fetch(`https://api.github.com/users/${userId}`)
-		const userData = await response.json()
-		loader.classList.add('loader_hide')
-		return userData
+		// console.log('status: ', response.status, response.ok)
+		if (response.ok) {
+			const userData = await response.json()
+			loader.classList.add('loader_hide')
+			return userData
+		} else {
+			loader.classList.add('loader_hide')
+			return response.status
+			//throw 'Error 404'
+		}
 	} catch (err) {
 		// throw new Error('Failed to fetch user')
 		console.log('some error')
@@ -45,13 +52,29 @@ formButton.addEventListener('click', () => {
 	let formInputValue = formInput.value
 	formInput.value = ''
 	formButton.setAttribute('disabled', 'disabled')
-	console.log(typeof getUser(formInputValue))
-	console.log(getUser(formInputValue))
+	// console.log(typeof getUser(formInputValue))
+	// console.log(getUser(formInputValue))
 	getUser(formInputValue)
 		.then(userData => {
+			// console.log('userData:', userData)
 			itemsList.innerText = ''
+			if (userData === 403) {
+				avatar.setAttribute('src', './images/avatar-default.png')
+				itemsList.insertAdjacentHTML(
+					'beforeend',
+					`<li>Exceeded the limit of requests to the GitHub API</li>`
+				)
+				throw 'Error 403: Exceeded the limit of requests to the GitHub API'
+			} else if (userData === 404) {
+				avatar.setAttribute('src', './images/avatar-default.png')
+				itemsList.insertAdjacentHTML(
+					'beforeend',
+					`<li>The user <strong>${formInputValue}</strong> does not exist</li>`
+				)
+				throw 'Error 404: The user does not exist'
+			}
 			avatar.setAttribute('src', userData.avatar_url)
-			console.log(userData)
+			// console.log(userData)
 			if (userData.name) {
 				itemsList.insertAdjacentHTML(
 					'beforeend',
@@ -78,6 +101,7 @@ formButton.addEventListener('click', () => {
 				)
 			}
 			// public_repos
+			// pages of repositories
 			if (userData.public_repos) {
 				itemsList.insertAdjacentHTML(
 					'beforeend',
@@ -93,25 +117,47 @@ formButton.addEventListener('click', () => {
 					</li>`
 				)
 			}
-			// repositories
+			// repositories // freeCodeCamp // ?page=1
 			if (userData.repos_url) {
 				itemsList.insertAdjacentHTML(
 					'beforeend',
 					`<li class="items__repos-url"></li>`
 				)
-				getRep(userData.repos_url)
-					.then(repos => {
-						console.log(typeof repos, repos)
-						let repListBlock = document.querySelector('.items__repos-url')
-						Object.keys(repos).forEach(function(key) {
-							repListBlock.insertAdjacentHTML(
-								'beforeend',
-								`<a href="${this[key].html_url}" target="_blank">${this[key].name}</a>`
-							)
-						}, repos)
-					})
-					.catch(err => alert(err.message))
+				//console.log('-----')
+				//console.log(userData.repos_url)
+				//
+				if (userData.public_repos) {
+					let repLastPage = userData.public_repos % 30
+					// console.log('repLastPage:', repLastPage)
+					let repPages = (userData.public_repos - repLastPage) / 30
+					// console.log('repPages:', repPages)
+
+					if (userData.public_repos < 30) {
+						// console.log(`Полных страниц: ${repPages + 1}`)
+						repPages++
+					} else {
+						// console.log(`Полных страниц: ${repPages} и еще одна с репозиториями: ${repLastPage}`)
+						repPages++
+					}
+					for (let pgs = 0; pgs < repPages; pgs++) {
+						let repPageUrl = `${userData.repos_url}?page=${pgs + 1}`
+						// console.log(pgs, '—', repPageUrl)
+						getRep(repPageUrl)
+							.then(repos => {
+								// console.log(typeof repos, repos)
+								let repListBlock = document.querySelector('.items__repos-url')
+								Object.keys(repos).forEach(function(key) {
+									repListBlock.insertAdjacentHTML(
+										'beforeend',
+										`<a href="${this[key].html_url}" target="_blank">${this[key].name}</a>`
+									)
+								}, repos)
+							})
+							.catch(err => console.log(err.message))
+					}
+				}
+				//
 			}
 		})
-		.catch(err => alert(err.message))
+		.catch(err => console.log(err.message))
 })

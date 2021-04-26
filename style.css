@@ -101,12 +101,12 @@ select {
 }
 
 .findform__input, .findform__submit {
-  border-radius: 0.8rem;
-  height: 4rem;
+  border-radius: 6px;
+  height: 3.2rem;
   outline: none;
   border-width: 1px;
   border-style: solid;
-  border-color: #f9f9f9;
+  border-color: #e1e4e8;
 }
 
 html {
@@ -115,17 +115,17 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.6rem;
-  background: #f9f9f9;
+  font-size: 1.4rem;
+  color: #24292e;
 }
 
 a {
-  color: #0871B0;
+  color: #2B67CF;
   text-decoration: none;
 }
 
 a:hover {
-  color: #eb8314;
+  text-decoration: underline;
 }
 
 .wrapper {
@@ -166,7 +166,7 @@ a:hover {
           transform-origin: center;
   -webkit-animation: rotate 1s linear infinite;
   animation: rotate 1s linear infinite;
-  stroke: #0871B0;
+  stroke: #2B67CF;
   fill: none;
 }
 
@@ -204,43 +204,47 @@ a:hover {
   padding: 0 1.2rem;
   width: 28rem;
   margin: 0 1.2rem 0 0;
-  -webkit-transition: border-color 0.4s;
-  -o-transition: border-color 0.4s;
-  transition: border-color 0.4s;
+  background: #fafbfc;
+  -webkit-box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
+          box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
 }
 
 .findform__input:focus {
-  border-color: #0871B0;
+  border-color: #2B67CF;
+  background: #ffffff;
+  -webkit-box-shadow: 0 0 0 2pt #BFD0F0;
+          box-shadow: 0 0 0 2pt #BFD0F0;
 }
 
 .findform__submit {
   padding: 0 4rem;
   cursor: pointer;
-  background: #0871B0;
-  border-color: #0871B0;
-  -webkit-transition: border-color 0.4s;
-  -o-transition: border-color 0.4s;
-  transition: border-color 0.4s;
+  background: #fafbfc;
+  -webkit-transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  -o-transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  -webkit-transition-property: color, background-color;
+  -o-transition-property: color, background-color;
+  transition-property: color, background-color;
   color: #ffffff;
   margin: 0;
+  color: #24292e;
+  -webkit-box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+          box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
 }
 
 .findform__submit:disabled {
   cursor: default;
-  background: #eeeeee;
   color: #999999;
-  border-color: #eeeeee;
-  -webkit-box-shadow: 0px 12px 20px -8px #0871B000;
-          box-shadow: 0px 12px 20px -8px #0871B000;
 }
 
 .findform__submit:not([disabled="disabled"]):hover {
-  -webkit-box-shadow: 0px 12px 20px -8px #0871B080;
-          box-shadow: 0px 12px 20px -8px #0871B080;
+  background-color: #f3f4f6;
+  border-color: rgba(27, 31, 35, 0.15);
 }
 
 .header {
-  color: #999999;
+  color: #24292e;
   text-align: center;
 }
 
@@ -258,10 +262,11 @@ a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-radius: 1.6rem;
+  border-radius: 6px;
   padding: 4rem;
   position: relative;
   background: #ffffff;
+  border: 1px solid #e1e4e8;
 }
 
 .infoblock__avatar {
@@ -317,17 +322,18 @@ a:hover {
   background: #ffffff;
   border-width: 1px;
   border-style: solid;
-  border-color: #eeeeee;
-  border-radius: 0.8rem;
+  border-color: #e1e4e8;
+  border-radius: 6px;
   -webkit-transition: border-color .3s, background .3s, color .3s;
   -o-transition: border-color .3s, background .3s, color .3s;
   transition: border-color .3s, background .3s, color .3s;
 }
 
 .infoblock__items li.items__repos-url a:hover {
-  background: #0871B0;
-  border-color: #0871B0;
+  background: #2B67CF;
+  border-color: #2B67CF;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .infoblock .items_show {

@@ -2,8 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400&display=swap')
 
 
+$colorDefault: #24292e
 $grayText: #999999
-$linkColor: #0871B0
+$linkColor: #2B67CF
+$outlineColor: #BFD0F0
 $linkHoverColor: #eb8314
 $border: 1px solid $grayText
 
@@ -25,26 +27,26 @@ $border: 1px solid $grayText
 
 // Template
 %form-items
-	border-radius: 0.8rem
-	height: 4rem
+	border-radius: 6px
+	height: 3.2rem
 	outline: none
 	border-width: 1px
 	border-style: solid
-	border-color: #f9f9f9
+	border-color: #e1e4e8
 
 html
 	font-size: 62.5%;
 
 body
 	font-family: 'Roboto', sans-serif
-	font-size: 1.6rem
-	background: #f9f9f9
+	font-size: 1.4rem
+	color: #24292e
 
 a
 	color: $linkColor
 	text-decoration: none
 	&:hover
-		color: $linkHoverColor
+		text-decoration: underline
 
 .wrapper
 	width: 100%
@@ -91,31 +93,32 @@ a
 		padding: 0 1.2rem
 		width: 28rem
 		margin: 0 1.2rem 0 0
-		transition: border-color 0.4s
+		background: #fafbfc
+		box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset
 		&:focus
 			border-color: $linkColor
+			background: #ffffff
+			box-shadow: 0 0 0 2pt $outlineColor
 	&__submit
 		@extend %form-items
 		padding: 0 4rem
 		cursor: pointer
-		background: $linkColor
-		border-color: $linkColor
-		transition: border-color 0.4s
+		background: #fafbfc
+		transition: .2s cubic-bezier(.3,0,.5,1)
+		transition-property: color, background-color
 		color: #ffffff
 		margin: 0
+		color: #24292e
+		box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset
 		&:disabled
 			cursor: default
-			background: #eeeeee
 			color: $grayText
-			border-color: #eeeeee
-			// box-shadow: inset 0px 20px 20px #2E8CC500, 0px 12px 20px -8px #0871B000
-			box-shadow: 0px 12px 20px -8px #0871B000
 		&:not([disabled="disabled"]):hover
-			// box-shadow: inset 0px 20px 20px #2E8CC5, 0px 12px 20px -8px #0871B080
-			box-shadow: 0px 12px 20px -8px #0871B080
+			background-color: #f3f4f6
+			border-color: rgba(27, 31, 35, 0.15)
 
 .header
-	color: $grayText
+	color: $colorDefault
 	text-align: center
 
 .infoblock
@@ -124,16 +127,16 @@ a
 	flex-direction: column
 	flex-wrap: nowrap
 	align-items: center
-	border-radius: 1.6rem
+	border-radius: 6px
 	padding: 4rem
 	position: relative
 	background: #ffffff
+	border: 1px solid #e1e4e8
 
 	&__avatar
 		border-radius: 50%
 		height: 12rem
 		display: block
-		// margin: 0 0 2rem
 
 	&__items
 		width: 100%
@@ -166,13 +169,14 @@ a
 					background: #ffffff
 					border-width: 1px
 					border-style: solid
-					border-color: #eeeeee
-					border-radius: 0.8rem
+					border-color: #e1e4e8
+					border-radius: 6px
 					transition: border-color .3s, background .3s, color .3s
 					&:hover
 						background: $linkColor
 						border-color: $linkColor
 						color: #ffffff
+						text-decoration: none
 	.items_show
 		display: block
 
